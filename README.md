@@ -1,2 +1,2 @@
 # Coderhouse_Javascript
-Curso Javascrip de Coderhouse
+Curso Javascript de Coderhouse
