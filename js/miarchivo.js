@@ -59,13 +59,7 @@ function crearMate(){
     return miMate
 }
 
-function obtenerTotal(precioUnitario, cantidad){
-    return precioUnitario*cantidad
-}
-
 function iniciar(){
-    let precioTotal= 0
-
     carrito = [
 
     ]
@@ -82,10 +76,8 @@ function iniciar(){
     }
     alert("Usted está por comprar: " + carrito.length + " modelos de mates")
 
-    for (let i = 0; i < carrito.length; i++) {
-        const matecompra = carrito[i]
-        precioTotal = precioTotal + matecompra.precio
-    }
+    const precioTotal = carrito.reduce((acc, element) => acc + element.precio, 0 )
+
     alert("El valor total a abonar es de $ " + precioTotal)
 }
 
