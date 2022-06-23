@@ -13,35 +13,47 @@
 
   <h1 class="titulo">Mate maker</h1>
     <img src="img/portada.png" class="portada">
-      <h2>Elige la forma del mate</h2>
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-3"> <img src="img/mate-perita.png" ></div>
-      <div class="col-sm-3"> <img src="img/mate-piramide.png"></div>
-      <div class="col-sm-3"> <img src="img/mate-cilindro.png"></div>
-      <div class="col-sm-3"><img src="img/mate-gota.png"></div>
-    </div>
-  </div>
-
-  <h2>Elige el tipo de mate</h2>
-  
-  <div class="container">
-    <div class="row">
-      <div class="col-sm-3"> <img src="img/mate-frase.png" ></div>
-      <div class="col-sm-3"> <img src="img/mate-flores.png"></div>
-      <div class="col-sm-3"> <img src="img/mate-cactus.png"></div>
-      <div class="col-sm-3"><img src="img/mate-personalizado.png"></div>
-    </div>
-  </div>
+           
+  <section id="container-mates">
+    <h2>Elige la forma del mate</h2>
+      <div class="row" id="listaformas">
+      </div>
+    <h2>Elige el tipo de mate</h2>
+      <div class="row" id="listatipos">
+      </div>
+  </section>
 
   <h2>Elige que cantidad querés llevar</h2>
+
+<div class=row>
+  <div class="col-sm-3"></div>
+    <div class="col-sm-6">
+      <form action="cantidad-mate" class="contador">
+        <div class="mb-3">
+          <label for="forma" class="form-label">Elegiste la forma:</label><br>
+          <input type="text" class="form-control" name="forma" id="formForma" placeholder="Forma"><br>
+        </div>
+        <div class="mb-3">
+          <label for="tipo" class="form-label">El tipo elegido es:</label><br>
+          <input type="text" class="form-control" name="tipo" id="formTipo" placeholder="Tipo"><br>
+        </div>
+        <div class="mb-3">
+          <label for="cantidad" class="form-label">Cuantos deseas comprar:</label><br>
+          <input type="text" class="form-control" name="cantidad" placeholder="0"><br>
+        </div>
+      </form> 
+    </div>
+  <div class="col-sm-3"></div>
+  <section id="carrito">
+
+  </section>
+  <button type="button" class="btn btn-primary">Carrito</button>
+</div>
+
 
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
   <script src="js/miarchivo.js"></script>
-  <form action="cantidad-mate" class="contador">
-    <label for="cantidad">Cuantos deseas comprar:</label><br>
-    <input type="text" name="cantidad" value="0"><br>
-  </form>
+ 
 </body>
 </html>

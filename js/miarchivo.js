@@ -4,6 +4,121 @@ const formas = ["perita", "cilindro","pirámide", "gota"
 const tipos = ["frase", "cactus", "flores", "personalizado"
 ]
 
+const listaMates = [ {
+    id: 1,
+    nombre: "Mate Perita",
+    precio: 1000,
+    madera: "pino",
+    img: "mate-perita.png"
+},
+
+{
+    id: 2,
+    nombre: "Mate Piramide",
+    precio: 2500,
+    madera: "cerezo",
+    img: "mate-piramide.png"
+},
+
+{
+    id: 3,
+    nombre: "Mate Cilindro",
+    precio: 2000,
+    madera: "alamo",
+    img: "mate-cilindro.png"
+},
+
+{
+    id: 4,
+    nombre: "Mate Gota",
+    precio: 3000,
+    madera: "pino",
+    img: "mate-gota.png"
+}
+]
+
+const listaTipos = [ {
+    id: 1,
+    nombre: "Frase",
+    precio: 1500,
+    img: "mate-frase.png"
+},
+
+{
+    id: 2,
+    nombre: "Cactus",
+    precio: 1800,
+    img: "mate-cactus.png"
+},
+
+{
+    id: 3,
+    nombre: "Flores",
+    precio: 2000,
+    img: "mate-flores.png"
+},
+
+{
+    id: 4,
+    nombre: "Personalizado",
+    precio: 3000,
+    img: "mate-personalizado.png"
+}
+]
+
+const listaformas = document.getElementById("listaformas")
+
+listaMates.forEach((producto) => {
+    const div = document.createElement('div')
+    div.classList.add("col-sm-3")
+    div.innerHTML = `<h4>${producto.nombre}</h4>
+                    <img src="img/${producto.img}" class="col-formas" value="${producto.nombre}"/>
+                    <p>Precio: $ ${producto.precio}</p>
+                    <hr>
+                    `   
+    listaformas.append(div)
+})
+
+btnsFormas= document.getElementsByClassName("col-formas") 
+
+for (let index = 0; index < btnsFormas.length; index++) {
+    const btn = btnsFormas[index]
+
+    btn.addEventListener('click', (event) => {
+        const value = event.target.getAttribute("value")
+        console.log(value)
+        const campoforma = document.getElementById("formForma")
+        campoforma.setAttribute("value", value)
+    })  
+}
+
+const listatiposcontainer = document.getElementById("listatipos")
+
+listaTipos.forEach((producto) => {
+    const div = document.createElement('div')
+    div.classList.add("col-sm-3")
+    div.innerHTML = `<h4>${producto.nombre}</h4>
+                    <img src="img/${producto.img}" class="col-tipos" value="${producto.nombre}"/>
+                    <p>Precio: $ ${producto.precio}</p>
+                    <hr>
+                    `   
+    listatiposcontainer.append(div)
+})
+
+btnsTipos= document.getElementsByClassName("col-tipos") 
+
+for (let index = 0; index < btnsTipos.length; index++) {
+    const btn = btnsTipos[index]
+
+    btn.addEventListener('click', (event) => {
+        const value = event.target.getAttribute("value")
+        console.log(value)
+        const campoforma = document.getElementById("formTipo")
+        campoforma.setAttribute("value", value)
+    })  
+}
+
+
 const precios = {
    formas: {
         perita: 1000,
@@ -81,4 +196,4 @@ function iniciar(){
     alert("El valor total a abonar es de $ " + precioTotal)
 }
 
-iniciar()
+/* iniciar() */
