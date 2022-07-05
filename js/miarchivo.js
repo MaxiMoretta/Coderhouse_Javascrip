@@ -1,12 +1,12 @@
+const carrito = []
 
-const formas = ["perita", "cilindro","pirámide", "gota"
-]
-const tipos = ["frase", "cactus", "flores", "personalizado"
-]
+const formas = ["perita", "cilindro","pirámide", "gota"]
+
+const tipos = ["frase", "cactus", "flores", "personalizado"]
 
 const listaMates = [ {
     id: 1,
-    nombre: "Mate Perita",
+    nombre: "perita",
     precio: 1000,
     madera: "pino",
     img: "mate-perita.png"
@@ -14,7 +14,7 @@ const listaMates = [ {
 
 {
     id: 2,
-    nombre: "Mate Piramide",
+    nombre: "pirámide",
     precio: 2500,
     madera: "cerezo",
     img: "mate-piramide.png"
@@ -22,7 +22,7 @@ const listaMates = [ {
 
 {
     id: 3,
-    nombre: "Mate Cilindro",
+    nombre: "cilindro",
     precio: 2000,
     madera: "alamo",
     img: "mate-cilindro.png"
@@ -30,7 +30,7 @@ const listaMates = [ {
 
 {
     id: 4,
-    nombre: "Mate Gota",
+    nombre: "gota",
     precio: 3000,
     madera: "pino",
     img: "mate-gota.png"
@@ -39,28 +39,28 @@ const listaMates = [ {
 
 const listaTipos = [ {
     id: 1,
-    nombre: "Frase",
+    nombre: "frase",
     precio: 1500,
     img: "mate-frase.png"
 },
 
 {
     id: 2,
-    nombre: "Cactus",
+    nombre: "cactus",
     precio: 1800,
     img: "mate-cactus.png"
 },
 
 {
     id: 3,
-    nombre: "Flores",
+    nombre: "flores",
     precio: 2000,
     img: "mate-flores.png"
 },
 
 {
     id: 4,
-    nombre: "Personalizado",
+    nombre: "personalizado",
     precio: 3000,
     img: "mate-personalizado.png"
 }
@@ -118,7 +118,6 @@ for (let index = 0; index < btnsTipos.length; index++) {
     })  
 }
 
-
 const precios = {
    formas: {
         perita: 1000,
@@ -137,8 +136,8 @@ const precios = {
 
 class Mate { 
     constructor( a, b, c){
-        this.forma = formas[a]
-        this.tipo = tipos[b]
+        this.forma = a
+        this.tipo = b
         this.cantidad = c
         this.precio = 0
     }
@@ -147,53 +146,27 @@ class Mate {
     }
     calcularPrecio(){
         this.precio = (precios.formas[this.forma] + precios.tipos[this.tipo]) * this.cantidad
-        alert("Estas a punto de pagar: $" + this.precio)
     }
 }
 
-function crearMate(){
-    let forma = 0
-    while (forma <1 || forma >4){
-        forma = Number(prompt("Bienvenido, elige el tipo de mate que deseas\n 1-mate perita \n 2-mate cilindro \n 3-mate pirámide \n 4-mate gota"))
-    } 
-    forma = forma-1
-    
-    let tipo = 0
-    while (tipo <1 || tipo >4){
-        tipo = Number(prompt("Ahora elije el tipo de mate que te gusta: \n 1-con frase \n 2-con cactus \n 3- con flores \n 4-personalizado"))
-    }   
-    tipo = tipo-1
+const añadirCarrito = document.getElementById("agregarCarrito")
 
-    let cantidad = Number(prompt("Cuantos deseas comprar?"))
+añadirCarrito.addEventListener('click', (event) => {
+    const mate = new Mate(document.getElementById("formForma").value,
+     document.getElementById("formTipo").value, 
+     parseInt(document.getElementById("formCantidad").value))
 
-    const miMate = new Mate(forma, tipo, cantidad)
+     mate.calcularPrecio()
+     carrito.push(mate)
+     console.log(carrito)
 
-    miMate.información()
-    miMate.calcularPrecio()
+    const cardCarrito = document.getElementById("carrito")
+    let li = document.createElement("li")
+    li.appendChild(document.createTextNode(mate.cantidad + " mate " + mate.forma + " tipo " + mate.tipo))
+    cardCarrito.appendChild(li)
 
-    return miMate
-}
+    const precioPagar = document.getElementById("precioTotal")
+    precioPagar.append(calcularPrecio())
+})
 
-function iniciar(){
-    carrito = [
-
-    ]
- 
-    let continuar = true
-
-    while(continuar === true){
-       let mate = crearMate()
-       carrito.push(mate)
-       let avance = prompt("Deseas seguir comprando?")
-            if( avance == "no"){
-                continuar = false
-            }
-    }
-    alert("Usted está por comprar: " + carrito.length + " modelos de mates")
-
-    const precioTotal = carrito.reduce((acc, element) => acc + element.precio, 0 )
-
-    alert("El valor total a abonar es de $ " + precioTotal)
-}
-
-/* iniciar() */
+1

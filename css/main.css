@@ -23,3 +23,23 @@ h2 {
     margin-bottom: 20px;
 }
 
+.col-formas, .col-tipos{
+    width: 100%;
+}
+
+.img-fluid {width: 100%;}
+
+.row {
+    margin-left: 0;
+    margin-right: 0;
+    --bs-gutter-x: 2.5rem;
+}
+
+.col-md-4 {
+    width: 100%;
+}
+
+.list-none{
+    list-style: none;
+    margin-left: 15px
+}

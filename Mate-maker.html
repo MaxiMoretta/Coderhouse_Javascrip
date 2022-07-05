@@ -13,41 +13,82 @@
 
   <h1 class="titulo">Mate maker</h1>
     <img src="img/portada.png" class="portada">
-           
-  <section id="container-mates">
-    <h2>Elige la forma del mate</h2>
-      <div class="row" id="listaformas">
-      </div>
-    <h2>Elige el tipo de mate</h2>
-      <div class="row" id="listatipos">
-      </div>
-  </section>
 
-  <h2>Elige que cantidad querés llevar</h2>
+    <hr>
 
 <div class=row>
-  <div class="col-sm-3"></div>
-    <div class="col-sm-6">
-      <form action="cantidad-mate" class="contador">
-        <div class="mb-3">
-          <label for="forma" class="form-label">Elegiste la forma:</label><br>
-          <input type="text" class="form-control" name="forma" id="formForma" placeholder="Forma"><br>
+  <div class="card mb-3" style="max-width: 540px;">
+    <div class="row g-0">
+      <div class="col-md-8">
+        <img src="./img/mate-personalizado.png" class="img-fluid rounded-start" alt="...">
+      </div>
+      <div class="col-md-4">
+        <div class="card-body">
+          <h5 class="card-title">Crea tu mate</h5>
+          <p class="card-text">Elegí como querés que sea tu mate. Te lo personalizamos según tus gustos. Es tu momento de crear.</p>
+          <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Crear</a>
         </div>
-        <div class="mb-3">
-          <label for="tipo" class="form-label">El tipo elegido es:</label><br>
-          <input type="text" class="form-control" name="tipo" id="formTipo" placeholder="Tipo"><br>
-        </div>
-        <div class="mb-3">
-          <label for="cantidad" class="form-label">Cuantos deseas comprar:</label><br>
-          <input type="text" class="form-control" name="cantidad" placeholder="0"><br>
-        </div>
-      </form> 
+      </div>
     </div>
-  <div class="col-sm-3"></div>
-  <section id="carrito">
+</div>
 
-  </section>
-  <button type="button" class="btn btn-primary">Carrito</button>
+  <div class="col-sm-6">
+    <div class="card" style="width: 18rem;">
+      <div class="card-body">
+        <img src="./img/carrito-img.jpg" class="card-img-top">
+        <h5 class="card-title">Carrito</h5>
+        <p class="card-text">Elegiste:</p>
+      </div>
+      <ul class="list-group-item d-flex justify-content-between align-items-start list-none" id="carrito">
+
+      </ul>
+      <div class="card-body">
+        <p type="text" class="form-control" id="totalPrecio">Total: </p> 
+        <a href="#" class="card-link">Comprar</a>
+        <a href="#" class="card-link">Anular</a> 
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- Modal -->
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Listado</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <section id="container-mates">
+          <h2>Elige la forma del mate</h2>
+            <div class="row" id="listaformas">
+            </div>
+          <h2>Elige el tipo de mate</h2>
+            <div class="row" id="listatipos">
+            </div>
+        </section>
+
+        <form action="cantidad-mate" class="contador">
+          <div class="mb-3">
+            <input type="hidden" class="form-control" name="forma" id="formForma" placeholder="Forma">
+          </div>
+          <div class="mb-3">
+            <input type="hidden" class="form-control" name="tipo" id="formTipo" placeholder="Tipo">
+          </div>
+          <div class="mb-3">
+            <label for="cantidad" class="form-label">Cuantos deseas comprar:</label><br>
+            <input type="number" id="formCantidad" class="form-control" name="cantidad" placeholder="0"><br>
+          </div>
+        </form> 
+
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
+        <button type="button" id="agregarCarrito" class="btn btn-primary">Agregar al carrito</button>
+      </div>
+    </div>
+  </div>
 </div>
 
 

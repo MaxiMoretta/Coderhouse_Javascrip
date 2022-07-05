@@ -1,0 +1,48 @@
+{
+	"listaMates": [{
+		"id": 1,
+		"nombre": "Mate Perita",
+		"precio": 1000,
+		"madera": "pino",
+		"img": "mate-perita.png"
+	}, {
+		"id": 2,
+		"nombre": "Mate Piramide",
+		"precio": 2500,
+		"madera": "cerezo",
+		"img": "mate-piramide.png"
+	}, {
+		"id": 3,
+		"nombre": "Mate Cilindro",
+		"precio": 2000,
+		"madera": "alamo",
+		"img": "mate-cilindro.png"
+	}, {
+		"id": 4,
+		"nombre": "Mate Gota",
+		"precio": 3000,
+		"madera": "pino",
+		"img": "mate-gota.png"
+	}],
+	"listaTipos": [{
+		"id": 1,
+		"nombre": "Frase",
+		"precio": 1500,
+		"img": "mate-frase.png"
+	}, {
+		"id": 2,
+		"nombre": "Cactus",
+		"precio": 1800,
+		"img": "mate-cactus.png"
+	}, {
+		"id": 3,
+		"nombre": "Flores",
+		"precio": 2000,
+		"img": "mate-flores.png"
+	}, {
+		"id": 4,
+		"nombre": "Personalizado",
+		"precio": 3000,
+		"img": "mate-personalizado.png"
+	}]
+}
