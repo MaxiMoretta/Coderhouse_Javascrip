@@ -5,29 +5,72 @@
 }
 
 .titulo {
-    color: rgb(255, 7, 143); 
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(212, 250, 237); 
+    font-family: 'Permanent Marker', cursive;
     position: absolute;
     margin-left: auto;
     margin-right: auto;
     left: 0;
     right: 0;
     text-align: center;
+    font-size: 70px;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.subtitulo {
+    color: rgb(212, 250, 237); 
+    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    position: absolute;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 80px;
+    left: 0;
+    right: 0;
+    text-align: center;
+    text-shadow: 2px 2px 4px #000000;
+}
+
+.carousel{
+    z-index: -1;
 }
 
 h2 {
-    color: rgb(255, 7, 143); 
-    font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+    color: rgb(1, 56, 70); 
+    font-family: 'Permanent Marker', cursive;
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
 }
 
-.col-formas, .col-tipos{
-    width: 100%;
+h4 {
+    color: rgb(1, 56, 70); 
+    font-family: 'Permanent Marker', cursive;
 }
 
-.img-fluid {width: 100%;}
+.card {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+  }
+
+.col-formas, .col-tipos{
+    width: 100%;    
+}
+
+.col-formas:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.col-tipos:hover {
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+.card-link{
+    margin-top: 30px;
+}
+
+.img-fluid {width: 70%;}
+
+.img-carrito{
+    width: 50%;
+}
 
 .row {
     margin-left: 0;
@@ -42,4 +85,13 @@ h2 {
 .list-none{
     list-style: none;
     margin-left: 15px
+}
+
+#formTotal{
+    margin-left: -15px;
+    margin-bottom: 25px;
+}
+
+.btnComprar{
+    margin-left: -15px;
 }

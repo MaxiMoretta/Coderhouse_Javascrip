@@ -4,69 +4,30 @@ const formas = ["perita", "cilindro","pirámide", "gota"]
 
 const tipos = ["frase", "cactus", "flores", "personalizado"]
 
-const listaMates = [ {
-    id: 1,
-    nombre: "perita",
-    precio: 1000,
-    madera: "pino",
-    img: "mate-perita.png"
-},
-
-{
-    id: 2,
-    nombre: "pirámide",
-    precio: 2500,
-    madera: "cerezo",
-    img: "mate-piramide.png"
-},
-
-{
-    id: 3,
-    nombre: "cilindro",
-    precio: 2000,
-    madera: "alamo",
-    img: "mate-cilindro.png"
-},
-
-{
-    id: 4,
-    nombre: "gota",
-    precio: 3000,
-    madera: "pino",
-    img: "mate-gota.png"
-}
-]
-
-const listaTipos = [ {
-    id: 1,
-    nombre: "frase",
-    precio: 1500,
-    img: "mate-frase.png"
-},
-
-{
-    id: 2,
-    nombre: "cactus",
-    precio: 1800,
-    img: "mate-cactus.png"
-},
-
-{
-    id: 3,
-    nombre: "flores",
-    precio: 2000,
-    img: "mate-flores.png"
-},
-
-{
-    id: 4,
-    nombre: "personalizado",
-    precio: 3000,
-    img: "mate-personalizado.png"
-}
-]
+const precioTotal = document.getElementById("precioTotal")
 
 const listaformas = document.getElementById("listaformas")
+
+/* const obtenerLista = () => {
+    let listas = {}
+    fetch("https://raw.githubusercontent.com/MaxiMoretta/Coderhouse_Javascript/main/js/mates.json"
+    ).then(response => response.json()
+    ).then(function(data){
+        listas = data
+    })
+
+    return listas
+} */
+
+async function getData(url) {
+    const response = await fetch(url);
+  
+    return response.json();
+  }
+  const data = await getData("https://raw.githubusercontent.com/MaxiMoretta/Coderhouse_Javascript/main/js/mates.json");
+
+  const listaMates = data.listaMates
+  const listaTipos = data.listaTipos
 
 listaMates.forEach((producto) => {
     const div = document.createElement('div')
@@ -160,13 +121,80 @@ añadirCarrito.addEventListener('click', (event) => {
      carrito.push(mate)
      console.log(carrito)
 
+
     const cardCarrito = document.getElementById("carrito")
     let li = document.createElement("li")
-    li.appendChild(document.createTextNode(mate.cantidad + " mate " + mate.forma + " tipo " + mate.tipo))
+    li.classList.add("list-group-item", "d-flex", "justify-content-between", "align-items-center")
+    li.appendChild(document.createTextNode( "Mate " + mate.forma + " tipo " + mate.tipo ))
+   
+    let span = document.createElement("span")
+    span.classList.add("badge", "bg-primary", "rounded-pill")
+    span.appendChild(document.createTextNode(mate.cantidad + " Unidades"))
+    li.appendChild(span)
+
     cardCarrito.appendChild(li)
 
-    const precioPagar = document.getElementById("precioTotal")
-    precioPagar.append(calcularPrecio())
+    /* CAMBIAR POR REDUCE */
+
+    const renderTotal = () => {
+        let total = 0
+        carrito.forEach((mate) => {
+            total += mate.precio
+        })
+    precioTotal.innerText = total
+
+    }
+    renderTotal()
+  
+    /* CAMBIAR POR REDUCE */
+
+
+    const btnComprar = document.getElementById("compraExitosa")
+
+    btnComprar.addEventListener('click', () => {
+        Swal.fire({
+            title: 'Felicitaciones!',
+            text: 'Tu pedido a sido ingresado correctamente.',
+            /* imageUrl: , */
+            imageWidth: 400,
+            imageHeight: 200,
+            imageAlt: 'Custom image',
+          })
+}) 
+
+const vaciarCarrito = () => {
+    carrito.length = 0
+    const cardCarrito = document.getElementById("carrito")
+    cardCarrito.innerHTML = ''
+    renderTotal()
+ 
+    /* localStorage.setItem('carrito', JSON.stringify(carrito)) */
+}
+
+
+const btnAnular = document.getElementById("compraAnulada")
+
+btnAnular.addEventListener('click', () => {
+Swal.fire({
+    title: 'Estás segur@?',
+    text: "Si cancelas deberas comenzar de nuevo!",
+    icon: 'warning',
+    showCancelButton: true,
+    confirmButtonColor: '#3085d6',
+    cancelButtonColor: '#d33',
+    confirmButtonText: 'Si, deseo cancelar!'
+  }).then((result) => {
+    if (result.isConfirmed) {
+      Swal.fire(
+        'Eliminado!',
+        'Tu pedido ha sido eliminado.',
+        'exitosamente'
+      )
+        vaciarCarrito()
+    }
+  })
 })
 
-1
+
+})
+

@@ -6,51 +6,83 @@
   <meta name="viewport" content="width=device-width,initial-scale=1" />
   <meta name="description" content="" />
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/css/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Permanent+Marker&display=swap" rel="stylesheet">
   <link rel="icon" href="img/favicon.ico">
   <link rel="stylesheet" href="css/main.css"> 
 </head>
 <body>
 
   <h1 class="titulo">Mate maker</h1>
-    <img src="img/portada.png" class="portada">
+  <h4 class="subtitulo">by "FLOR DE AMAPOLA"</h4>
+
+  <div id="carouselExampleIndicators"  class="carousel slide" data-bs-ride="carousel">
+    <div class="carousel-indicators">
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="0" class="active" aria-current="true" aria-label="Slide 1"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="1" aria-label="Slide 2"></button>
+      <button type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide-to="2" aria-label="Slide 3"></button>
+    </div>
+    <div class="carousel-inner">
+      <div class="carousel-item active">
+        <img src="img/portadaA.gif" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="img/portadaB.gif" class="d-block w-100" alt="...">
+      </div>
+      <div class="carousel-item">
+        <img src="img/portadaC.gif" class="d-block w-100" alt="...">
+      </div>
+    </div>
+    <button class="carousel-control-prev" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="prev">
+      <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Anterior</span>
+    </button>
+    <button class="carousel-control-next" type="button" data-bs-target="#carouselExampleIndicators" data-bs-slide="next">
+      <span class="carousel-control-next-icon" aria-hidden="true"></span>
+      <span class="visually-hidden">Proxinmo</span>
+    </button>
+  </div>
 
     <hr>
 
-<div class=row>
-  <div class="card mb-3" style="max-width: 540px;">
-    <div class="row g-0">
-      <div class="col-md-8">
-        <img src="./img/mate-personalizado.png" class="img-fluid rounded-start" alt="...">
+
+    <div class="row">
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <div class="col-md-8">
+              <img src="./img/mate-personalizado.png" class="img-fluid rounded-start" alt="...">
+            </div>
+            <h4 class="card-title">Crea tu mate</h4>
+            <p class="card-text">Elegí como querés que sea tu mate. Te lo personalizamos según tus gustos. Es tu momento de crear.</p>
+            <a href="#" class="btn btn-primary  btn-lg" data-bs-toggle="modal" data-bs-target="#exampleModal">Comienza ahora</a>
+          </div>
+        </div>
       </div>
-      <div class="col-md-4">
-        <div class="card-body">
-          <h5 class="card-title">Crea tu mate</h5>
-          <p class="card-text">Elegí como querés que sea tu mate. Te lo personalizamos según tus gustos. Es tu momento de crear.</p>
-          <a href="#" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal">Crear</a>
+      <div class="col-sm-6">
+        <div class="card">
+          <div class="card-body">
+            <div class="col-md-8">
+              <img src="./img/carrito-img.jpg" class="card-img-top img-carrito" alt="...">
+            </div>  
+            <h4 class="card-title">Carrito</h4>
+            <h5 class="card-text">Elegiste:</h5>
+            
+            <ul class="list-group-item justify-content-between align-items-start list-none mx-2" id="carrito">
+ 
+            </ul>
+
+            <div class="card-body">
+              <h5 id="formTotal">Total: $<span id="precioTotal">0</span></h5>
+
+              <a href="#" class="btn btn-primary card-link btnComprar" id="compraExitosa">Comprar</a>
+              <a href="#" class="btn btn-secondary card-link btnComprar" id="compraAnulada">Anular</a> 
+            </div>
+          </div>
         </div>
       </div>
     </div>
-</div>
 
-  <div class="col-sm-6">
-    <div class="card" style="width: 18rem;">
-      <div class="card-body">
-        <img src="./img/carrito-img.jpg" class="card-img-top">
-        <h5 class="card-title">Carrito</h5>
-        <p class="card-text">Elegiste:</p>
-      </div>
-      <ul class="list-group-item d-flex justify-content-between align-items-start list-none" id="carrito">
-
-      </ul>
-      <div class="card-body">
-        <p type="text" class="form-control" id="totalPrecio">Total: </p> 
-        <a href="#" class="card-link">Comprar</a>
-        <a href="#" class="card-link">Anular</a> 
-      </div>
-    </div>
-  </div>
-</div>
-
+    <br>
 <!-- Modal -->
 <div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
   <div class="modal-dialog modal-lg modal-dialog-centered modal-dialog-scrollable">
@@ -85,7 +117,7 @@
       </div>
       <div class="modal-footer">
         <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Cancelar</button>
-        <button type="button" id="agregarCarrito" class="btn btn-primary">Agregar al carrito</button>
+        <button type="button" id="agregarCarrito" class="btn btn-primary" data-bs-dismiss="modal">Agregar al carrito</button>
       </div>
     </div>
   </div>
@@ -95,6 +127,6 @@
   <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.5/dist/umd/popper.min.js" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.2.0-beta1/dist/js/bootstrap.min.js" crossorigin="anonymous"></script>
   <script src="js/miarchivo.js"></script>
- 
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
 </body>
 </html>
