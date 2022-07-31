@@ -5,25 +5,25 @@
 }
 
 .titulo {
-    color: rgb(212, 250, 237); 
-    font-family: 'Permanent Marker', cursive;
+    color: rgb(149, 225, 255); 
+    font-family: 'Atma', cursive;
     position: absolute;
     margin-left: auto;
     margin-right: auto;
     left: 0;
     right: 0;
     text-align: center;
-    font-size: 70px;
+    font-size: 90px;
     text-shadow: 2px 2px 4px #000000;
 }
 
 .subtitulo {
-    color: rgb(212, 250, 237); 
+    color:rgb(175, 232, 255); 
     font-family:'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
     position: absolute;
     margin-left: auto;
     margin-right: auto;
-    margin-top: 80px;
+    margin-top: 90px;
     left: 0;
     right: 0;
     text-align: center;
@@ -36,7 +36,7 @@
 
 h2 {
     color: rgb(1, 56, 70); 
-    font-family: 'Permanent Marker', cursive;
+    font-family: 'Atma', cursive;
     text-align: center;
     margin-top: 20px;
     margin-bottom: 20px;
@@ -44,7 +44,19 @@ h2 {
 
 h4 {
     color: rgb(1, 56, 70); 
-    font-family: 'Permanent Marker', cursive;
+    font-family: 'Atma', cursive;
+}
+
+.tituloFormas{
+    color: rgb(1, 56, 70); 
+    font-family: 'Atma', cursive;
+    text-align: center;
+}
+
+.tituloTipos{
+    color: rgb(1, 56, 70); 
+    font-family: 'Atma', cursive;
+    text-align: center;
 }
 
 .card {
@@ -52,21 +64,40 @@ h4 {
   }
 
 .col-formas, .col-tipos{
-    width: 100%;    
+    width: 100%; 
+    border-radius: 5px;   
 }
 
-.col-formas:hover {
+.col-formas:hover, .col-tipos:hover {
+    cursor: pointer;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
 }
 
-.col-tipos:hover {
-    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+.selectOption {
+    box-shadow: 0 10px 12px 0 rgba(76, 255, 246, 0.849);
 }
+
 .card-link{
     margin-top: 30px;
 }
 
-.img-fluid {width: 70%;}
+.col-md-8 {width: 100%;}
+
+.bi-trash3-fill::before {
+    font-size: 1.3em;
+    color: grey;
+}
+
+.badge{
+color: grey;
+}
+
+.list-group-item .list-group-item {
+    background: rgb(180, 219, 255);
+    border-radius: 1em;
+    padding-left: 10px;
+    margin-top: 5px;
+}
 
 .img-carrito{
     width: 50%;
